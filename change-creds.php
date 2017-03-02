@@ -9,13 +9,14 @@ if(empty($_POST) === false)
 	$username = $_POST['username'];
 	// Get the posted password and save it to variable
 	$password = $_POST['password'];
+
+	storeCredentials($username,$password);
 }
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,7 +24,7 @@ if(empty($_POST) === false)
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Metis Server Manager">
     <meta name="author" content="Jorge Pabon [PREngineer]">
-    <link rel="icon" href="Branding/logo.png">
+    <link rel="icon" href="Branding/favicon.ico">
 
     <title>Metis Server Manager Login</title>
 
@@ -61,10 +62,10 @@ if(empty($_POST) === false)
 		else
 		{
 			// Set Logged In as Successful
-			$_SESSION['loggedIn'] = true;
+			//$_SESSION['loggedIn'] = true;
 			// Redirect to Main
-			header('Location: dashboard.php');
-			exit();
+			//header('Location: main.php');
+			//exit();
 		}
 	}
 
@@ -84,7 +85,7 @@ if(empty($_POST) === false)
 
     </div> <!-- /container -->
 
-    <footer class="footer-signin">
+    <footer class="footer">
       <div class="container">
 	<p class="text-muted">
 	  Metis Server Manager -
