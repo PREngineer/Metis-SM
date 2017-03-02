@@ -1,7 +1,17 @@
 <div class="col-sm-3 col-md-2 sidebar">
     <ul class="nav nav-sidebar">
-        
-        <li class="active"><a href="dashboard.php" title="System Overview">Overview<span class="sr-only">(current)</span></a></li>
+        <li>
+            <a href="dashboard.php" title="Metis Server Manager">
+                <img src="Branding/logo-30.png" alt="Metis Server Manager - Logo">
+            </a>
+        </li>
+
+        <li class="active">
+            <a href="dashboard.php" title="System Overview">
+                Dashboard
+                <span class="sr-only">(current)</span>
+            </a>
+        </li>
         
         <li class="dropdown">
             <a href=""  title="Active Servers" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

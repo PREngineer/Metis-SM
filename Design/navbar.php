@@ -1,4 +1,5 @@
-<!-- Start Fixed navbar -->
+<!-- Start Fixed navbar
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">-->
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <!-- Start Collapsed NavBar -->
