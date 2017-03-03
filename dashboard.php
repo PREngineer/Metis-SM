@@ -1,6 +1,11 @@
 <?php
 // Initialize Session
 include 'Session/init.php';
+
+$p1=75;
+$p2=99;
+$p3=15;
+$p4=51;
 ?>
 
 <!DOCTYPE html>
@@ -32,28 +37,59 @@ include 'Design/navbar.php';
         
         <!-- Start Right Column -->
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          
+          <!-- Start Breadcrumbs -->
+          <!--<ol class="breadcrumb">
+            <li class="active">Dashboard</li>
+            <li></li>
+          </ol>-->
+          <!-- End Breadcrumbs -->
+          <br><br>
           <h1 class="page-header">System Overview</h1>
 
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Graph-1</h4>
-              <span class="text-muted">This graph is about something in the server.</span>
+              <div class="c100 p<?php echo $p1;?>">
+                    <span><?php echo $p1;?>%</span>
+                    <div class="slice">
+                        <div class="bar"></div>
+                        <div class="fill"></div>
+                    </div>
+              </div>
+              <h4 class="col-xs-6 col-sm-3 placeholder">-CPU-</h4>
             </div>
+
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Graph-2</h4>
-              <span class="text-muted">This graph is about something in the server.</span>
+              <div class="c100 p<?php echo $p2;?>">
+                    <span><?php echo $p2;?>%</span>
+                    <div class="slice">
+                        <div class="bar"></div>
+                        <div class="fill"></div>
+                    </div>
+              </div>
+              <h4 class="col-xs-6 col-sm-3 placeholder">-RAM-</h4>
             </div>
+
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Graph-3</h4>
-              <span class="text-muted">This graph is about something in the server.</span>
+              <div class="c100 p<?php echo $p3;?>">
+                    <span><?php echo $p3;?>%</span>
+                    <div class="slice">
+                        <div class="bar"></div>
+                        <div class="fill"></div>
+                    </div>
+              </div>
+              <h4 class="col-xs-6 col-sm-3 placeholder">-Net-</h4>
             </div>
+
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Graph-4</h4>
-              <span class="text-muted">This graph is about something in the server.</span>
+              <div class="c100 p<?php echo $p4;?>">
+                    <span><?php echo $p4;?>%</span>
+                    <div class="slice">
+                        <div class="bar"></div>
+                        <div class="fill"></div>
+                    </div>
+              </div>
+              <h4 class="col-xs-6 col-sm-3 placeholder">-HDD-</h4>
             </div>
           </div>
 
@@ -80,6 +116,7 @@ include 'Design/navbar.php';
               </tbody>
             </table>
           </div>
+          <br><br>
         </div>
       </div>
     </div>

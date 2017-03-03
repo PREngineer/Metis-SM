@@ -30,6 +30,11 @@
   <!-- Signin CSS -->
   <link href="Design/css/sign-in.css" rel="stylesheet">
 
+  <!-- Donut Charts CSS -->
+  <link rel="stylesheet" href="Design/css/circle.css">
+  <link rel="stylesheet" href="Design/css/donut-charts.css">
+
+
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
