@@ -89,13 +89,6 @@
             <li><a href="" title="About Metis Server Manager"><span class="glyphicon glyphicon-question-sign"></span> About</a></li>
           </ul>
         </li>
-
-        <!-- Refresh page icon -->
-        <li>
-          <a href="<?php echo $_SERVER["REQUEST_URI"]; ?>"  title="Refresh Page" style="color:#777; margin-top: 5px;" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-            <span class="glyphicon glyphicon-refresh"></span>
-          </a>
-        </li>
       </ul>
     </div>
     <!-- End Expanded NavBar -->
