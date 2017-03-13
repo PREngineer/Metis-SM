@@ -2,10 +2,7 @@
 // Initialize Session
 include 'Session/init.php';
 
-$p1=75;
-$p2=99;
 $p3=15;
-$p4=51;
 ?>
 
 <!DOCTYPE html>
@@ -55,9 +52,11 @@ include 'Design/navbar.php';
             </a>
           </h1>
 
+          <!-- Start First Row -->
           <!-- Get the CPU Info -->
           <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
+
+            <div class="col-xs-6 col-sm-3 placeholder" title="CPU Use">
               <div class="c100 p<?php echo getCPULoad();?>">
                     <span><?php echo getCPULoad();?>%</span>
                     <div class="slice">
@@ -65,11 +64,11 @@ include 'Design/navbar.php';
                         <div class="fill"></div>
                     </div>
               </div>
-              <h4 class="col-xs-6 col-sm-3 placeholder">-CPU-</h4>
+              <span class="glyphicon glyphicon-scale"></span>
             </div>
             
             <!-- Get the RAM Info -->
-            <div class="col-xs-6 col-sm-3 placeholder">
+            <div class="col-xs-6 col-sm-3 placeholder" title="RAM Use">
               <div class="c100 p<?php echo getRAMUse();?>">
                     <span><?php echo getRAMUse();?>%</span>
                     <div class="slice">
@@ -77,21 +76,29 @@ include 'Design/navbar.php';
                         <div class="fill"></div>
                     </div>
               </div>
-              <h4 class="col-xs-6 col-sm-3 placeholder">-RAM-</h4>
+              <span class="glyphicon glyphicon-oil"></span>
             </div>
 
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <div class="c100 p<?php echo $p3;?>">
-                    <span><?php echo $p3;?>%</span>
-                    <div class="slice">
-                        <div class="bar"></div>
-                        <div class="fill"></div>
-                    </div>
+            <!-- Get the Net Download Info -->
+            <div class="col-xs-6 col-sm-3 placeholder" title="Network Use">
+              <span class="glyphicon glyphicon-signal pull-right"></span>
+              <br>
+              <div>
+              <h4>
+                <span class="glyphicon glyphicon-download"></span>
+                <?php echo round( (getNetworkThroughput()['rx']) / (1024*1024) );?> MB
+              </h4>
               </div>
-              <h4 class="col-xs-6 col-sm-3 placeholder">-Net-</h4>
+              <div>
+              <h4>
+                <span class="glyphicon glyphicon-upload"></span>
+                <?php echo round( (getNetworkThroughput()['tx']) / (1024*1024) );?> MB
+              </h4>
+              </div>
             </div>
 
-            <div class="col-xs-6 col-sm-3 placeholder">
+          <!-- Get the Hard Disk Space Info -->
+            <div class="col-xs-6 col-sm-3 placeholder" title="Hard Disk Use">
               <div class="c100 p<?php echo getDiskUse();?>">
                     <span><?php echo getDiskUse();?>%</span>
                     <div class="slice">
@@ -99,9 +106,14 @@ include 'Design/navbar.php';
                         <div class="fill"></div>
                     </div>
               </div>
-              <h4 class="col-xs-6 col-sm-3 placeholder">-HDD-</h4>
+              <span class="glyphicon glyphicon-hdd"></span>
             </div>
+          
           </div>
+          <!-- End First Row -->
+
+          <!-- Start Second Row -->
+          <!-- End Second Row -->
 
           <h2 class="sub-header">Server Status</h2>
           <div class="table-responsive">

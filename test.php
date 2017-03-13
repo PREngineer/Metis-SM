@@ -1,102 +1,57 @@
-<?php
-
-$font = $_GET['font-size'];
-$percentage = $_GET['percentage'];
-$width = $_GET['width'];
-$height = $_GET['height'];
-$duration = $_GET['duration'];
-$transition = $_GET['transition'];
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Animated Donut with Percentage</title>
-<style type="text/css">
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
-body {
-    width: 100%;
-    height: 100%;
-    font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    color: #fff;
-    background-color: #000;
-}
-path.color0 {
-    fill: #fff;
-}
-path.color1 {
-    fill: rgba(255,255,255,.3);
-}
-text {
-    font-size: <?php echo $font; ?>;
-    font-weight: 400;
-    line-height: 16em;
-    fill: #fff;
-}
 
-</style>
-</head>
+<?php
+// Initialize Session
+include 'Session/init.php';
+// Include the header
+include 'Design/head.php';
+?>
+
 <body>
-<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script type="text/javascript">
-var duration = <?php echo $duration; ?>,
-    transition = <?php echo $transition; ?>,
-    percent = <?php echo $percentage; ?>,
-    width = <?php echo $width; ?>,
-    height = <?php echo $height; ?>;
+<?php
 
-var dataset = {
-            lower: calcPercent(0),
-            upper: calcPercent(percent)
-        },
-        radius = Math.min(width, height) / 3,
-        pie = d3.layout.pie().sort(null),
-        format = d3.format(".0%");
+//$array = getCPUInfo();
 
-var arc = d3.svg.arc()
-        .innerRadius(radius * .8)
-        .outerRadius(radius);
+//print_r($array);
 
-var svg = d3.select("body").append("svg")
-        .attr("width", width)
-        .attr("height", height)
-        .append("g")
-        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+echo "<h2>Basic System Stats</h2>";
 
-var path = svg.selectAll("path")
-                .data(pie(dataset.lower))
-                .enter().append("path")
-                .attr("class", function (d, i) {
-                    return "color" + i
-                })
-                .attr("d", arc)
-                .each(function (d) {
-                    this._current = d;
-                });
+echo "RAM Used: " . getRAMUse()."%<br>";
 
-var text = svg.append("text")
-        .attr("text-anchor", "middle")
-        .attr("dy", ".3em");
+echo "CPU Load: " . getCPULoad() . "%<br>";
 
-var progress = 0;
+echo "Disk Total: " . disk_total_space("/") . "<br>";
 
-var timeout = setTimeout(function () {
-    clearTimeout(timeout);
-    path = path.data(pie(dataset.upper));
-    path.transition().duration(duration).attrTween("d", function (a) {
-        var i = d3.interpolate(this._current, a);
-        var i2 = d3.interpolate(progress, percent)
-        this._current = i(0);
-        return function (t) {
-            text.text(format(i2(t) / 100));
-            return arc(i(t));
-        };
-    });
-}, 200);
+echo "Disk Free: " . disk_free_space("/") . "<br>";
 
-function calcPercent(percent) {
-    return [percent, 100 - percent];
-};
-</script>
+echo "Disk Use: " . getDiskUse() . "%<br>";
+
+//hdd stat
+echo "<h2>Hard Disk Stats</h2>";
+
+$stat['hdd_free'] = round(disk_free_space("/") / 1024 / 1024 / 1024, 2);
+$stat['hdd_total'] = round(disk_total_space("/") / 1024 / 1024/ 1024, 2);
+$stat['hdd_used'] = $stat['hdd_total'] - $stat['hdd_free'];
+$stat['hdd_percent'] = round(sprintf('%.2f',($stat['hdd_used'] / $stat['hdd_total']) * 100), 2);
+
+echo "Disk Free: " . $stat['hdd_free'] . "GB<br>";
+echo "Disk Total: " . $stat['hdd_total'] . "GB<br>";
+echo "Disk Used: " . $stat['hdd_used'] . "GB<br>";
+echo "Disk Used: " . $stat['hdd_percent'] . "%<br>";
+
+//network stat
+echo "<h2>Network Stats</h2>";
+
+echo "Interface is: " . getNetworkInterface()."<br>";
+
+$arr = getNetworkThroughput();
+
+echo "Rx Bytes: " . $arr['rx']." Bytes<br>";
+
+echo "Tx Bytes: " . $arr['tx']." Bytes<br>";
+
+?>
+</body>
+
+</html>

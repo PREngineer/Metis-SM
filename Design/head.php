@@ -12,7 +12,7 @@
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="Design/js/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="Design/js/jquery.min.js"><\/script>')</script>
 
   <!-- Bootstrap core CSS -->
@@ -32,7 +32,7 @@
 
   <!-- Donut Charts CSS -->
   <link rel="stylesheet" href="Design/css/circle.css">
-  <link rel="stylesheet" href="Design/css/donut-charts.css">
+  <!--<link rel="stylesheet" href="Design/css/donut-charts.css">-->
 
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

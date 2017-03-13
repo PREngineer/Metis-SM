@@ -244,7 +244,7 @@ function getNetworkInterface()
 
 {
     /**
-    * Name:           getNetworkInterface
+    * Name:           getNetworkThroughput
     * Results:        Returns the network throughput in the last 2 seconds
     * Array elements: tx,rx
     **/
