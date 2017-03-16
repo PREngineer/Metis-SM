@@ -53,8 +53,8 @@ function getOSInformation()
     *                 DirectMap4K,DirectMap2M
     **/
 }
-function getRAMUse() 
-{       
+function getRAMUse()
+{
     $data = explode("\n", file_get_contents("/proc/meminfo"));
     $meminfo = array();
     foreach ($data as $line)
@@ -62,9 +62,9 @@ function getRAMUse()
         list($key, $val) = explode(":", $line);
         $meminfo[$key] = trim($val);
     }
-    
 
-    return round( ( ($meminfo["MemTotal"] - $meminfo["MemAvailable"]) 
+
+    return round( ( ($meminfo["MemTotal"] - $meminfo["MemAvailable"])
                     / $meminfo["MemTotal"] ) * 100 );
 }
 
@@ -80,8 +80,8 @@ function getRAMUse()
     *                 power management
     **/
 }
-function getCPUInfo() 
-{       
+function getCPUInfo()
+{
     $data = explode("\n", file_get_contents("/proc/cpuinfo"));
     $meminfo = array();
     foreach ($data as $line)
@@ -89,7 +89,7 @@ function getCPUInfo()
         list($key, $val) = explode(":", $line);
         $meminfo[$key] = trim($val);
     }
-    
+
     return $meminfo;
 }
 
@@ -150,7 +150,7 @@ function getLinuxCPULoadData()
 function getCPULoad()
 {
     $load = null;
-    
+
     // If using Windows
     if(stristr(PHP_OS, "win"))
     {
@@ -255,10 +255,10 @@ function getNetworkThroughput()
     $tx[] = @file_get_contents("/sys/class/net/".getNetworkInterface()."/statistics/tx_bytes");
     sleep(1);
     $rx[] = @file_get_contents("/sys/class/net/".getNetworkInterface()."/statistics/rx_bytes");
-    $tx[] = @file_get_contents("/sys/class/net/".getNetworkInterface()."/statistics/tx_bytes"); 
+    $tx[] = @file_get_contents("/sys/class/net/".getNetworkInterface()."/statistics/tx_bytes");
 
     $tbps = $tx[1] - $tx[0];
-    $rbps = $rx[1] - $rx[0]; 
+    $rbps = $rx[1] - $rx[0];
 
     $networktransfer['tx'] = $tbps;
     $networktransfer['rx'] = $rbps;
